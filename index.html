@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardik Sonagara | Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        :root {
+            --bg-main: #ECEBE9;
+            --text-navy: #1C1C1C;
+            --accent-blue: #4f5bff;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-navy);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .font-serif-italic {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        
+        /* Cinematic Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: fit-content;
+            animation: marquee 30s linear infinite;
+            will-change: transform;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes float-person {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.02); }
+        }
+        .animate-float-person {
+            animation: float-person 8s ease-in-out infinite;
+        }
+
+        /* Large expressive typography */
+        .big-text {
+            font-size: clamp(8rem, 25vw, 22rem);
+            font-weight: 900;
+            line-height: 0.8;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* Custom Swiper Styles */
+        .swiper-slide {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+            opacity: 0.4;
+        }
+        .swiper-slide-active {
+            opacity: 1;
+            transform: scale(1.1);
+            z-index: 10;
+        }
+        .swiper-pagination-bullet {
+            background: #4f5bff !important;
+            opacity: 0.3;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            width: 24px !important;
+            border-radius: 4px !important;
+        }
+
+        /* Depth layering */
+        .layer-back { z-index: 0; }
+        .layer-mid { z-index: 10; }
+        .layer-front { z-index: 20; }
+        
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(28, 28, 28, 0.1);
+            color: transparent;
+        }
+
+        /* About Hover Bubble Styles */
+        .about-bubble {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(79, 91, 255, 0.15) 0%, rgba(79, 91, 255, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 5;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            filter: blur(40px);
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .about-section:hover .about-bubble {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "swiper/react": "https://esm.sh/swiper@11/react",
+    "swiper/modules": "https://esm.sh/swiper@11/modules",
+    "swiper": "https://esm.sh/swiper@11",
+    "swiper/": "https://esm.sh/swiper@^12.0.3/",
+    "gsap": "https://esm.sh/gsap@^3.12.5"
+  }
+}
+</script>
+</head>
+<body class="selection:bg-blue-200">
+    <div id="root"></div>
+</body>
+</html>

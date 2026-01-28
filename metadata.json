@@ -1,0 +1,8 @@
+{
+  "name": "Hardik Sonagara Portfolio",
+  "description": "A sophisticated, high-end portfolio for Hardik Sonagara, featuring elegant typography, growth marketing showcases, and an interactive Gemini-powered AI strategist chat.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
