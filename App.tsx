@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,10 +11,24 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
 import SideNav from './components/SideNav';
+import WorkPage from './pages/WorkPage';
 
 const App: React.FC = () => {
+  const [currentPath, setCurrentPath] = useState(window.location.hash || '#/');
+
   useEffect(() => {
-    // Intersection observer for reveal animations
+    const handleHashChange = () => {
+      const hash = window.location.hash || '#/';
+      setCurrentPath(hash);
+      // Scroll to top on page change
+      if (hash.startsWith('#/work') || hash === '#/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // Intersection observer for reveal animations (re-init on path change)
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -31,47 +45,48 @@ const App: React.FC = () => {
     const hiddenElements = document.querySelectorAll('.reveal');
     hiddenElements.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      observer.disconnect();
+    };
+  }, [currentPath]);
+
+  const isWorkPage = currentPath.startsWith('#/work');
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full min-h-screen flex flex-col">
       <Navbar />
-      <SideNav />
       
-      <main>
-        <div id="hero">
-          <Hero />
-        </div>
-        
-        <div id="about" className="reveal">
-          <About />
-        </div>
-        
-        <div id="services" className="reveal">
-          <Services />
-        </div>
-        
-        <div id="work" className="reveal">
-          <Work />
-        </div>
-
-        <div className="reveal">
-          <ProjectSlider />
-        </div>
-        
-        <div id="testimonials" className="reveal">
-          <Testimonials />
-        </div>
-        
-        <div id="contact" className="reveal">
-          <Contact />
-        </div>
+      <main className="flex-grow">
+        {isWorkPage ? (
+          <WorkPage />
+        ) : (
+          <>
+            <SideNav />
+            <div id="hero">
+              <Hero />
+            </div>
+            
+            <div id="about" className="reveal">
+              <About />
+            </div>
+            
+            <div id="services" className="reveal">
+              <Services />
+            </div>
+            
+            <div id="testimonials" className="reveal">
+              <Testimonials />
+            </div>
+            
+            <div id="contact" className="reveal">
+              <Contact />
+            </div>
+          </>
+        )}
       </main>
 
       <Footer />
-      
-      {/* AI Strategy Companion */}
       <Chatbot />
     </div>
   );
