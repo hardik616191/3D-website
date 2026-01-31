@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import ProjectSlider from '../components/ProjectSlider';
 import Work from '../components/Work';
+import Testimonials from '../components/Testimonials';
 import { ArrowDown } from 'lucide-react';
 
 const WorkPage: React.FC = () => {
@@ -37,6 +38,11 @@ const WorkPage: React.FC = () => {
 
       {/* The Full Portfolio Grid */}
       <Work />
+
+      {/* Social Proof - Testimonials */}
+      <div id="testimonials" className="reveal">
+        <Testimonials />
+      </div>
 
       {/* Footer CTA specifically for the Work page */}
       <section className="py-40 bg-[#0b0f14] border-t border-white/5 text-white relative overflow-hidden">
