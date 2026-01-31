@@ -101,6 +101,14 @@ const Navbar: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            <a
+              href="#/"
+              onClick={(e) => navigateToHome(e, 'testimonials')}
+              className="text-sm font-semibold text-white/70 hover:text-white transition-colors"
+            >
+              Testimonials
+            </a>
           </div>
           <a 
             href="#/"
@@ -147,6 +155,14 @@ const Navbar: React.FC = () => {
               </button>
             ))}
           </div>
+
+          <a
+            href="#/"
+            className="text-lg font-semibold text-white text-center"
+            onClick={(e) => navigateToHome(e, 'testimonials')}
+          >
+            Testimonials
+          </a>
 
           <a 
             href="#/" 

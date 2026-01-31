@@ -9,6 +9,13 @@ export interface Award {
   icon: string;
 }
 
+export interface TestimonialExtended extends Testimonial {
+  avatar: string;
+  company: string;
+  rating: number;
+  date: string;
+}
+
 export const AWARDS: Award[] = [
   { title: "Top Rated Full Stack Developer", org: "Upwork Global", year: "2023", icon: "Trophy" },
   { title: "Special Kudos Award", org: "CSS Design Awards", year: "2024", icon: "Award" },
@@ -42,7 +49,7 @@ export const SERVICES: Service[] = [
 ];
 
 export const PROJECTS: Project[] = [
-  // Web Projects (Unified Shopify, WordPress, WooCommerce, and Custom Web)
+  // Web Projects
   { title: "Adored Vintage", category: "Web Projects", image: "https://picsum.photos/seed/vintage/800/1000", url: "https://www.adoredvintage.com/" },
   { title: "Meow Meow Tweet", category: "Web Projects", image: "https://picsum.photos/seed/skincare/800/1000", url: "https://meowmeowtweet.com/" },
   { title: "Pot Gang", category: "Web Projects", image: "https://picsum.photos/seed/potgang/800/1000", url: "https://potgang.co.uk/" },
@@ -128,16 +135,42 @@ export const VIDEO_PROJECTS: VideoProject[] = [
   }
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
+export const TESTIMONIALS: TestimonialExtended[] = [
   {
     quote: "Hardik has an uncanny ability to see the 'big picture' while executing the smallest details perfectly. Our system latency dropped by 60%.",
     author: "Sarah Jenkins",
-    role: "CTO, Lumina Tech"
+    role: "CTO",
+    company: "Lumina Tech",
+    avatar: "https://i.pravatar.cc/150?u=sarah",
+    rating: 5,
+    date: "July 2024"
   },
   {
     quote: "Working with Hardik was a game-changer for our product launch. His full-stack expertise is unparalleled in the industry.",
     author: "Marcus Thorne",
-    role: "Product Director, Shift Engineering"
+    role: "Product Director",
+    company: "Shift Engineering",
+    avatar: "https://i.pravatar.cc/150?u=marcus",
+    rating: 5,
+    date: "June 2024"
+  },
+  {
+    quote: "The headless CMS portal he built for us is a masterpiece of efficiency. Our content team is 3x faster now.",
+    author: "Elena Rodriguez",
+    role: "Head of Marketing",
+    company: "Vortex Media",
+    avatar: "https://i.pravatar.cc/150?u=elena",
+    rating: 4.8,
+    date: "August 2024"
+  },
+  {
+    quote: "Exceptional Shopify developer. He turned our slow-loading store into a high-converting machine within weeks.",
+    author: "David Chen",
+    role: "Founder",
+    company: "Artisaire",
+    avatar: "https://i.pravatar.cc/150?u=david",
+    rating: 5,
+    date: "May 2024"
   }
 ];
 
