@@ -29,130 +29,111 @@ const ProjectSlider: React.FC = () => {
   };
 
   const onSwiperInit = (swiper: SwiperType) => {
-    // Initial play for the first slide
     handleSlideChange(swiper);
   };
 
   return (
     <section id="work-demo" className="py-32 bg-[#0b0f14] relative overflow-hidden">
-      {/* Background Glows */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-purple-600/10 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-purple-600/5 blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center mb-20">
+        <div className="mb-20">
           <p className="text-[#4f5bff] font-bold uppercase tracking-[0.3em] text-xs mb-4">Live Demonstrations</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Experience the <span className="font-serif-italic font-normal">Execution</span></h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            A deeper look into the architecture and interaction of my most complex engineering projects.
-          </p>
+          <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            The <span className="font-serif-italic font-normal italic text-blue-500">Art</span> of <br />
+            Execution
+          </h2>
         </div>
 
-        <div className="relative px-4 sm:px-12">
+        <div className="relative">
           <Swiper
             modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
             effect="coverflow"
             grabCursor={true}
             centeredSlides={true}
-            slidesPerView={1.2}
-            spaceBetween={30}
+            slidesPerView={1.1}
+            spaceBetween={0}
             loop={true}
-            autoplay={{ delay: 6000, disableOnInteraction: false }}
+            autoplay={{ delay: 8000, disableOnInteraction: false }}
             onSlideChange={handleSlideChange}
             onSwiper={onSwiperInit}
             coverflowEffect={{
               rotate: 0,
               stretch: 0,
-              depth: 100,
-              modifier: 2.5,
+              depth: 200,
+              modifier: 1,
               slideShadows: false,
             }}
             breakpoints={{
-              640: { slidesPerView: 1.5 },
-              1024: { slidesPerView: 2 },
+              768: { slidesPerView: 1.5 },
+              1280: { slidesPerView: 2 },
             }}
             navigation={{
-              prevEl: '.swiper-prev',
-              nextEl: '.swiper-next',
+              prevEl: '.demo-prev',
+              nextEl: '.demo-next',
             }}
-            pagination={{ clickable: true, el: '.swiper-pagination-custom' }}
-            className="pb-20"
+            className="!py-20"
           >
             {VIDEO_PROJECTS.map((project, index) => (
               <SwiperSlide key={index}>
-                <div className="relative group overflow-hidden rounded-[32px] bg-[#111827] border border-white/5 shadow-2xl aspect-[16/10]">
-                  {/* Video Background */}
+                <div className="relative group overflow-hidden rounded-[48px] bg-[#111827] border border-white/5 shadow-2xl aspect-[16/10] mx-4">
                   <video
-                    ref={(el) => (videoRefs.current[index] = el)}
+                    ref={(el) => { videoRefs.current[index] = el; }}
                     src={project.videoUrl}
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700"
+                    className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-1000"
                     muted={isMuted}
                     loop
                     playsInline
                     poster={project.image}
                   />
 
-                  {/* Dark Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f14] via-transparent to-transparent opacity-90"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 group-hover:opacity-60 transition-opacity"></div>
 
-                  {/* Glassmorphism Content */}
-                  <div className="absolute inset-x-0 bottom-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="absolute inset-x-0 bottom-0 p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {project.tech.map((tag) => (
-                        <span key={tag} className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-bold text-white uppercase tracking-wider">
+                        <span key={tag} className="px-4 py-1.5 bg-white/10 backdrop-blur-xl border border-white/10 rounded-full text-[10px] font-black text-white uppercase tracking-widest">
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-gray-400 text-sm mb-6 max-w-md line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">{project.title}</h3>
+                    <p className="text-gray-400 text-sm mb-8 max-w-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
                       {project.description}
                     </p>
-                    <button className="flex items-center space-x-2 px-6 py-3 bg-[#4f5bff] text-white rounded-full font-bold text-sm hover:bg-[#2f3cff] transition-all transform opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 duration-500">
-                      <span>View Project Details</span>
-                      <ArrowRight size={16} />
-                    </button>
+                    <a href={project.url} className="inline-flex items-center space-x-3 px-8 py-4 bg-blue-500 text-white rounded-full font-bold text-sm hover:bg-blue-600 transition-all opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 duration-700 delay-200">
+                      <span>View Project</span>
+                      <ArrowRight size={18} />
+                    </a>
                   </div>
 
-                  {/* Play/Sound Overlay */}
-                  <div className="absolute top-6 right-6 flex space-x-2">
+                  <div className="absolute top-10 right-10 flex space-x-3">
                     <button 
                       onClick={(e) => {
                         e.stopPropagation();
                         setIsMuted(!isMuted);
                       }}
-                      className="p-3 bg-white/10 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-white/20 transition-all pointer-events-auto"
+                      className="w-14 h-14 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-white hover:bg-white hover:text-black transition-all flex items-center justify-center pointer-events-auto"
                     >
-                      {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+                      {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
                     </button>
                   </div>
-                  
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className="w-20 h-20 bg-[#4f5bff]/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20">
-                      <Play size={32} className="text-white fill-current ml-1" />
-                    </div>
-                  </div>
-
-                  {/* Neon Edge Highlight */}
-                  <div className="absolute inset-0 border border-white/5 rounded-[32px] group-hover:border-[#4f5bff]/50 transition-colors duration-500"></div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
 
-          {/* Custom Controls */}
-          <div className="flex justify-between items-center mt-12 px-4">
-            <div className="flex space-x-4">
-              <button className="swiper-prev p-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-white transition-all">
-                <ArrowLeft size={20} />
-              </button>
-              <button className="swiper-next p-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-white transition-all">
-                <ArrowRight size={20} />
-              </button>
-            </div>
-            <div className="swiper-pagination-custom flex space-x-2"></div>
+          <div className="flex justify-center items-center space-x-6 mt-12">
+            <button className="demo-prev w-16 h-16 bg-white/5 hover:bg-white hover:text-black border border-white/10 rounded-full text-white transition-all flex items-center justify-center group">
+              <ArrowLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
+            </button>
+            <div className="h-[1px] w-24 bg-white/10"></div>
+            <button className="demo-next w-16 h-16 bg-white/5 hover:bg-white hover:text-black border border-white/10 rounded-full text-white transition-all flex items-center justify-center group">
+              <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
         </div>
       </div>

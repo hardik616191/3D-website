@@ -6,6 +6,7 @@ import About from './components/About';
 import Services from './components/Services';
 import Work from './components/Work';
 import ProjectSlider from './components/ProjectSlider';
+import Awards from './components/Awards';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -67,6 +68,10 @@ const App: React.FC = () => {
               <Hero />
             </div>
             
+            <div id="awards" className="reveal">
+              <Awards />
+            </div>
+
             <div id="about" className="reveal">
               <About />
             </div>

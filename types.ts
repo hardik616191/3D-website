@@ -9,6 +9,7 @@ export interface Project {
   title: string;
   category: string;
   image: string;
+  url: string;
 }
 
 export interface VideoProject extends Project {

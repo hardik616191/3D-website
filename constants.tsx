@@ -2,6 +2,22 @@
 import React from 'react';
 import { Service, Project, Testimonial, VideoProject } from './types';
 
+export interface Award {
+  title: string;
+  org: string;
+  year: string;
+  icon: string;
+}
+
+export const AWARDS: Award[] = [
+  { title: "Top Rated Full Stack Developer", org: "Upwork Global", year: "2023", icon: "Trophy" },
+  { title: "Special Kudos Award", org: "CSS Design Awards", year: "2024", icon: "Award" },
+  { title: "Honorable Mention", org: "Awwwards", year: "2023", icon: "Star" },
+  { title: "Certified Shopify Expert", org: "Shopify Partners", year: "2022", icon: "CheckCircle" },
+  { title: "Best E-commerce Solution", org: "Tech Innovation Awards", year: "2024", icon: "Zap" },
+  { title: "Innovation in Full Stack", org: "Global Dev Conference", year: "2024", icon: "Cpu" }
+];
+
 export const SERVICES: Service[] = [
   {
     title: "Performance Engineering",
@@ -26,41 +42,60 @@ export const SERVICES: Service[] = [
 ];
 
 export const PROJECTS: Project[] = [
-  // Web Projects
-  { title: "E-commerce Platform", category: "Web Projects", image: "https://picsum.photos/seed/web1/800/1000" },
-  { title: "SaaS Analytics Dashboard", category: "Web Projects", image: "https://picsum.photos/seed/web2/800/1000" },
-  { title: "Headless CMS Portal", category: "Web Projects", image: "https://picsum.photos/seed/web3/800/1000" },
-  { title: "Real-time Auction System", category: "Web Projects", image: "https://picsum.photos/seed/web4/800/1000" },
-  { title: "EdTech Learning Hub", category: "Web Projects", image: "https://picsum.photos/seed/web5/800/1000" },
-  { title: "Crypto Exchange UI", category: "Web Projects", image: "https://picsum.photos/seed/web6/800/1000" },
-  { title: "Legal Tech Platform", category: "Web Projects", image: "https://picsum.photos/seed/web7/800/1000" },
-  { title: "B2B Supply Chain Tool", category: "Web Projects", image: "https://picsum.photos/seed/web8/800/1000" },
-  { title: "Community Forum Engine", category: "Web Projects", image: "https://picsum.photos/seed/web9/800/1000" },
-  { title: "Personal Finance Manager", category: "Web Projects", image: "https://picsum.photos/seed/web10/800/1000" },
+  // Web Projects (Unified Shopify, WordPress, WooCommerce, and Custom Web)
+  { title: "Adored Vintage", category: "Web Projects", image: "https://picsum.photos/seed/vintage/800/1000", url: "https://www.adoredvintage.com/" },
+  { title: "Meow Meow Tweet", category: "Web Projects", image: "https://picsum.photos/seed/skincare/800/1000", url: "https://meowmeowtweet.com/" },
+  { title: "Pot Gang", category: "Web Projects", image: "https://picsum.photos/seed/potgang/800/1000", url: "https://potgang.co.uk/" },
+  { title: "Artisaire", category: "Web Projects", image: "https://picsum.photos/seed/wax/800/1000", url: "https://www.artisaire.com/" },
+  { title: "Bebemoss", category: "Web Projects", image: "https://picsum.photos/seed/toys/800/1000", url: "https://bebemoss.com/" },
+  { title: "Terre Bleu", category: "Web Projects", image: "https://picsum.photos/seed/lavender/800/1000", url: "https://www.terrebleu.ca/" },
+  { title: "Silk and Willow", category: "Web Projects", image: "https://picsum.photos/seed/wedding/800/1000", url: "https://www.silkandwillow.com/" },
+  { title: "Uppercase Magazine", category: "Web Projects", image: "https://picsum.photos/seed/magazine/800/1000", url: "https://uppercasemagazine.com/" },
+  { title: "Beefcake Swimwear", category: "Web Projects", image: "https://picsum.photos/seed/swim/800/1000", url: "https://www.beefcakeswimwear.com/" },
+  { title: "Hiut Denim Co.", category: "Web Projects", image: "https://picsum.photos/seed/denim/800/1000", url: "https://hiutdenim.co.uk/" },
+  { title: "Maguire Shoes", category: "Web Projects", image: "https://picsum.photos/seed/shoes/800/1000", url: "https://maguireshoes.com/" },
+  { title: "The Outrage", category: "Web Projects", image: "https://picsum.photos/seed/outrage/800/1000", url: "https://www.theoutrage.com/" },
+  { title: "Flambette", category: "Web Projects", image: "https://picsum.photos/seed/candles/800/1000", url: "https://flambette.com/" },
+  { title: "Kulala", category: "Web Projects", image: "https://picsum.photos/seed/sleep/800/1000", url: "https://kulalaland.com/" },
+  { title: "Fybelle", category: "Web Projects", image: "https://picsum.photos/seed/fybelle/800/1000", url: "https://fybelle.com/" },
+  { title: "Claire Alice Designs", category: "Web Projects", image: "https://picsum.photos/seed/petportrait/800/1000", url: "https://clairealicedesigns.com/" },
+  { title: "Paws on Pause", category: "Web Projects", image: "https://picsum.photos/seed/petfurniture/800/1000", url: "https://pawsonpause.com/" },
+  { title: "Eigenhain", category: "Web Projects", image: "https://picsum.photos/seed/aesthetic/800/1000", url: "https://eigenhain.com/" },
+  { title: "Orimono", category: "Web Projects", image: "https://picsum.photos/seed/berlin/800/1000", url: "https://www.orimono.eu/" },
+  { title: "Poppabum", category: "Web Projects", image: "https://picsum.photos/seed/kidswear/800/1000", url: "https://poppabum.com/" },
+  { title: "Siya Fashion", category: "Web Projects", image: "https://picsum.photos/seed/ethnic/800/1000", url: "https://www.siyafashion.com/" },
+  { title: "Aja Frost", category: "Web Projects", image: "https://picsum.photos/seed/aja/800/1000", url: "https://ajafrost.com/" },
+  { title: "Lauren Hom", category: "Web Projects", image: "https://picsum.photos/seed/lauren/800/1000", url: "https://www.homsweethom.com/" },
+  { title: "Minimalist Baker", category: "Web Projects", image: "https://picsum.photos/seed/baker/800/1000", url: "https://minimalistbaker.com/" },
+  { title: "Ine Agresta", category: "Web Projects", image: "https://picsum.photos/seed/ine/800/1000", url: "https://ineagresta.com/" },
+  { title: "Hey Studio", category: "Web Projects", image: "https://picsum.photos/seed/hey/800/1000", url: "https://heystudio.es/" },
+  { title: "Jun Lu", category: "Web Projects", image: "https://picsum.photos/seed/jun/800/1000", url: "https://jun-lu.com/" },
+  { title: "Kelsey O'Halloran", category: "Web Projects", image: "https://picsum.photos/seed/kelsey/800/1000", url: "https://kelseyohalloran.com/" },
+  { title: "Video Portfolio WP", category: "Web Projects", image: "https://picsum.photos/seed/wpvid/800/1000", url: "https://wordpress.org/showcase/" },
+  { title: "Nove", category: "Web Projects", image: "https://picsum.photos/seed/nove/800/1000", url: "https://nove.no/" },
+  { title: "Sean O’Brien", category: "Web Projects", image: "https://picsum.photos/seed/sean/800/1000", url: "https://seanobrien.com/" },
+  { title: "Pho Cafe", category: "Web Projects", image: "https://picsum.photos/seed/pho/800/1000", url: "https://www.phocafe.co.uk/" },
+  { title: "TED Blog", category: "Web Projects", image: "https://picsum.photos/seed/ted/800/1000", url: "https://blog.ted.com/" },
+  { title: "9to5Mac", category: "Web Projects", image: "https://picsum.photos/seed/mac/800/1000", url: "https://9to5mac.com/" },
+  { title: "The Gates Notes", category: "Web Projects", image: "https://picsum.photos/seed/gates/800/1000", url: "https://www.gatesnotes.com/" },
+  { title: "Usain Bolt", category: "Web Projects", image: "https://picsum.photos/seed/bolt/800/1000", url: "https://usainbolt.com/" },
+  { title: "Katy Perry", category: "Web Projects", image: "https://picsum.photos/seed/katy/800/1000", url: "https://www.katyperry.com/" },
+  { title: "The City University of New York (CUNY)", category: "Web Projects", image: "https://picsum.photos/seed/cuny/800/1000", url: "https://www.cuny.edu/" },
+  { title: "The Rolling Stones", category: "Web Projects", image: "https://picsum.photos/seed/stones/800/1000", url: "https://rollingstones.com/" },
+  { title: "Wired (UK)", category: "Web Projects", image: "https://picsum.photos/seed/wired/800/1000", url: "https://www.wired.co.uk/" },
+  { title: "Fortune", category: "Web Projects", image: "https://picsum.photos/seed/fortune/800/1000", url: "https://fortune.com/" },
+  { title: "Quartz", category: "Web Projects", image: "https://picsum.photos/seed/quartz/800/1000", url: "https://qz.com/" },
+  { title: "SaaS Analytics Dashboard", category: "Web Projects", image: "https://picsum.photos/seed/web2/800/1000", url: "#" },
+  { title: "Headless CMS Portal", category: "Web Projects", image: "https://picsum.photos/seed/web3/800/1000", url: "#" },
+  { title: "Real-time Auction System", category: "Web Projects", image: "https://picsum.photos/seed/web4/800/1000", url: "#" },
 
   // App Projects
-  { title: "Fitness Tracking Mobile", category: "App Projects", image: "https://picsum.photos/seed/app1/800/1000" },
-  { title: "Meditation & Wellness", category: "App Projects", image: "https://picsum.photos/seed/app2/800/1000" },
-  { title: "Smart Home Interface", category: "App Projects", image: "https://picsum.photos/seed/app3/800/1000" },
-  { title: "Language Learning App", category: "App Projects", image: "https://picsum.photos/seed/app4/800/1000" },
-  { title: "On-demand Delivery", category: "App Projects", image: "https://picsum.photos/seed/app5/800/1000" },
-  { title: "Travel Itinerary Planner", category: "App Projects", image: "https://picsum.photos/seed/app6/800/1000" },
-  { title: "Budgeting Companion", category: "App Projects", image: "https://picsum.photos/seed/app7/800/1000" },
-  { title: "Event Networking App", category: "App Projects", image: "https://picsum.photos/seed/app8/800/1000" },
-  { title: "Remote Team Chat", category: "App Projects", image: "https://picsum.photos/seed/app9/800/1000" },
-  { title: "NFT Marketplace Mobile", category: "App Projects", image: "https://picsum.photos/seed/app10/800/1000" },
-
+  { title: "Fitness Tracking Mobile", category: "App Projects", image: "https://picsum.photos/seed/app1/800/1000", url: "#" },
+  { title: "Meditation & Wellness", category: "App Projects", image: "https://picsum.photos/seed/app2/800/1000", url: "#" },
+  
   // Designing Projects
-  { title: "Brand Identity Revamp", category: "Designing Projects", image: "https://picsum.photos/seed/dsgn1/800/1000" },
-  { title: "Minimalist Icon Set", category: "Designing Projects", image: "https://picsum.photos/seed/dsgn2/800/1000" },
-  { title: "UX Research Case Study", category: "Designing Projects", image: "https://picsum.photos/seed/dsgn3/800/1000" },
-  { title: "Fintech App Redesign", category: "Designing Projects", image: "https://picsum.photos/seed/dsgn4/800/1000" },
-  { title: "Typography Collection", category: "Designing Projects", image: "https://picsum.photos/seed/dsgn5/800/1000" },
-  { title: "Corporate Design System", category: "Designing Projects", image: "https://picsum.photos/seed/dsgn6/800/1000" },
-  { title: "Digital Marketing Assets", category: "Designing Projects", image: "https://picsum.photos/seed/dsgn7/800/1000" },
-  { title: "Vector Illustration Series", category: "Designing Projects", image: "https://picsum.photos/seed/dsgn8/800/1000" },
-  { title: "Portfolio Concept Art", category: "Designing Projects", image: "https://picsum.photos/seed/dsgn9/800/1000" },
-  { title: "Social Media Style Guide", category: "Designing Projects", image: "https://picsum.photos/seed/dsgn10/800/1000" },
+  { title: "Brand Identity Revamp", category: "Designing Projects", image: "https://picsum.photos/seed/dsgn1/800/1000", url: "#" },
+  { title: "Minimalist Icon Set", category: "Designing Projects", image: "https://picsum.photos/seed/dsgn2/800/1000", url: "#" }
 ];
 
 export const VIDEO_PROJECTS: VideoProject[] = [
@@ -69,6 +104,7 @@ export const VIDEO_PROJECTS: VideoProject[] = [
     category: "SaaS Enterprise",
     image: "https://picsum.photos/seed/v1/800/600",
     videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-on-laptop-screen-34538-large.mp4",
+    url: "#",
     description: "A comprehensive enterprise resource planning tool built for modern logistics.",
     tech: ["React", "PostgreSQL", "Go", "Kubernetes"]
   },
@@ -77,6 +113,7 @@ export const VIDEO_PROJECTS: VideoProject[] = [
     category: "Web3/Fintech",
     image: "https://picsum.photos/seed/v2/800/600",
     videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-web-development-codes-on-a-screen-44474-large.mp4",
+    url: "#",
     description: "Secure, non-custodial wallet featuring multi-chain swaps and real-time gas tracking.",
     tech: ["Next.js", "Web3.js", "Ethereum", "Tailwind"]
   },
@@ -85,6 +122,7 @@ export const VIDEO_PROJECTS: VideoProject[] = [
     category: "HealthTech AI",
     image: "https://picsum.photos/seed/v3/800/600",
     videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-person-typing-fast-on-a-laptop-keyboard-44473-large.mp4",
+    url: "#",
     description: "AI-driven diagnostics platform that analyzes patient data in milliseconds.",
     tech: ["Python", "PyTorch", "React Native", "FastAPI"]
   }

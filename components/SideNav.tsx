@@ -4,7 +4,7 @@ import { Trophy, Rocket, FlaskConical, Brain, MessageSquare } from 'lucide-react
 
 const SideNav: React.FC = () => {
   const navItems = [
-    { icon: Trophy, label: 'Awards', href: '#hero' },
+    { icon: Trophy, label: 'Awards', href: '#awards' },
     { icon: Rocket, label: 'Benefits', href: '#services' },
     { icon: FlaskConical, label: 'Works', href: '#work' },
     { icon: Brain, label: 'Process', href: '#about' },
@@ -19,16 +19,16 @@ const SideNav: React.FC = () => {
           href={item.href}
           className="group relative flex items-center justify-end"
         >
-          {/* Label (Visible on hover) */}
-          <div className="absolute right-0 flex items-center bg-white/80 backdrop-blur-md border border-gray-100 rounded-full h-12 px-6 pr-14 shadow-sm opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300 ease-out pointer-events-none group-hover:pointer-events-auto">
-            <span className="text-sm font-medium tracking-wide text-[#2C2C2C] whitespace-nowrap">
+          {/* Label (Visible on hover) - Updated to dark glassmorphism */}
+          <div className="absolute right-0 flex items-center bg-[#111827]/90 backdrop-blur-xl border border-white/10 rounded-full h-12 px-6 pr-14 shadow-2xl opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300 ease-out pointer-events-none group-hover:pointer-events-auto">
+            <span className="text-sm font-semibold tracking-wide text-white whitespace-nowrap">
               {item.label}
             </span>
           </div>
 
-          {/* Icon Circle */}
-          <div className="relative z-10 w-12 h-12 flex items-center justify-center bg-[#E5E7EB]/40 backdrop-blur-sm border border-white/20 rounded-full text-[#2C2C2C] group-hover:bg-[#A89078] group-hover:text-white transition-all duration-300 shadow-sm">
-            <item.icon size={20} strokeWidth={1.5} />
+          {/* Icon Circle - Updated to blue accent and glass effect */}
+          <div className="relative z-10 w-12 h-12 flex items-center justify-center bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-white/70 group-hover:bg-blue-500 group-hover:text-white group-hover:border-blue-400 group-hover:shadow-[0_0_20px_rgba(79,91,255,0.4)] transition-all duration-300 shadow-sm">
+            <item.icon size={20} strokeWidth={2} />
           </div>
         </a>
       ))}
